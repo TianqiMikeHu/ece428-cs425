@@ -23,7 +23,7 @@ int main(void){
     int fd, childfd;
     struct addrinfo hints, *servinfo;
     struct sockaddr_storage storage;
-    char ip4[INET_ADDRSTRLEN];
+    // char ip6[INET6_ADDRSTRLEN];
     socklen_t sin_size;
     int yes = 1;
     setbuf(stdout, NULL);
@@ -38,8 +38,8 @@ int main(void){
         exit(1);
     }
 
-    inet_ntop(AF_INET, servinfo->ai_addr, ip4, INET_ADDRSTRLEN);
-    printf("My IPv4 address is: %s\n", ip4);
+    // inet_ntop(AF_INET, servinfo->ai_addr, ip6, INET6_ADDRSTRLEN);
+    // printf("My IPv6 address is: %s\n", ip6);
 
     if((fd = socket(servinfo->ai_family, servinfo->ai_socktype, servinfo->ai_protocol)) == -1){
         fprintf(stderr, "socket");
